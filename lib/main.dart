@@ -22,6 +22,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('ukrspetzevroprom')));
+    return Scaffold(body: Center(child: Text('Ukrspetzevroprom')));
   }
 }
