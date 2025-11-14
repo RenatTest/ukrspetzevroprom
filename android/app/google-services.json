@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1091135017942",
+    "project_id": "ukrspetzevroprom-c9ec1",
+    "storage_bucket": "ukrspetzevroprom-c9ec1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091135017942:android:63174b115a6139094b0a77",
+        "android_client_info": {
+          "package_name": "com.example.ukrspetzevroprom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWpvZudLbj9NJ0FZWjU3SOMq5Ocmcmo2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
