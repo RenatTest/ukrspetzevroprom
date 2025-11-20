@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ukrspetzevroprom/features/about_us/presentation/ui/screens/about_us.dart';
 import 'package:ukrspetzevroprom/features/catalog/presentation/ui/screens/catalog.dart';
@@ -11,27 +12,96 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       name: PageNames.homePage,
-      builder: (context, state) => const HomePage(),
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          child: const HomePage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: Offset.zero,
+                end: Offset.zero,
+              ).animate(animation),
+              child: child,
+            );
+          },
+        );
+      },
       routes: [
         GoRoute(
           path: 'catalog',
           name: PageNames.catalog,
-          builder: (context, state) => const Catalog(),
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const Catalog(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset.zero,
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+                  },
+            );
+          },
         ),
         GoRoute(
           path: 'about-us',
           name: PageNames.aboutUs,
-          builder: (context, state) => const AboutUs(),
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const AboutUs(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset.zero,
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+                  },
+            );
+          },
         ),
         GoRoute(
           path: 'news',
           name: PageNames.news,
-          builder: (context, state) => const News(),
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const News(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset.zero,
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+                  },
+            );
+          },
         ),
         GoRoute(
           path: 'contacts',
           name: PageNames.contacts,
-          builder: (context, state) => const Contacts(),
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const Contacts(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset.zero,
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+                  },
+            );
+          },
         ),
       ],
     ),
