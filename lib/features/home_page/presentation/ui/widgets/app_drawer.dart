@@ -11,38 +11,43 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     final String? currentRouteName = GoRouterState.of(context).name;
 
-    return Drawer(
-      backgroundColor: HexColor('#2092cd'),
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          // DrawerHeader(child: Text('Меню', style: TextStyle(fontSize: 20))),
-          AppDrawerItem(
-            title: 'Головна',
-            route: PageNames.homePage,
-            activeRoute: currentRouteName,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.3,
+      child: Drawer(
+        backgroundColor: HexColor('#2092cd'),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              AppDrawerItem(
+                title: 'Головна',
+                route: PageNames.homePage,
+                activeRoute: currentRouteName,
+              ),
+              AppDrawerItem(
+                title: 'Каталог',
+                route: PageNames.catalog,
+                activeRoute: currentRouteName,
+              ),
+              AppDrawerItem(
+                title: 'Про нас',
+                route: PageNames.aboutUs,
+                activeRoute: currentRouteName,
+              ),
+              AppDrawerItem(
+                title: 'Новини',
+                route: PageNames.news,
+                activeRoute: currentRouteName,
+              ),
+              AppDrawerItem(
+                title: 'Контакти',
+                route: PageNames.contacts,
+                activeRoute: currentRouteName,
+              ),
+            ],
           ),
-          AppDrawerItem(
-            title: 'Каталог',
-            route: PageNames.catalog,
-            activeRoute: currentRouteName,
-          ),
-          AppDrawerItem(
-            title: 'Про нас',
-            route: PageNames.aboutUs,
-            activeRoute: currentRouteName,
-          ),
-          AppDrawerItem(
-            title: 'Новини',
-            route: PageNames.news,
-            activeRoute: currentRouteName,
-          ),
-          AppDrawerItem(
-            title: 'Контакти',
-            route: PageNames.contacts,
-            activeRoute: currentRouteName,
-          ),
-        ],
+        ),
       ),
     );
   }

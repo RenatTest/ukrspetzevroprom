@@ -14,7 +14,7 @@ class AppBarCustom extends StatelessWidget {
 
     return Container(
       color: HexColor('#2092cd'),
-      height: 100,
+      height: isMobile ? 60 : 100,
       child: Padding(
         padding: const EdgeInsets.only(right: 20, left: 20),
         child: Row(
@@ -24,14 +24,14 @@ class AppBarCustom extends StatelessWidget {
               spacing: 10,
               children: [
                 Image.asset(
-                  width: 90,
-                  height: 90,
+                  width: isMobile ? 45 : 90,
+                  height: isMobile ? 45 : 90,
                   'assets/images/main_logo.png',
                 ),
                 Text(
                   'Укрспецєвропром',
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: isMobile ? 16 : 25,
                     color: HexColor('FFFFFF'),
                     fontWeight: FontWeight.w600,
                   ),

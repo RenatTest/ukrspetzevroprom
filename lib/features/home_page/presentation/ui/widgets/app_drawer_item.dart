@@ -24,12 +24,15 @@ class AppDrawerItem extends StatelessWidget {
           context.goNamed(route);
         }
       },
-      child: Text(
-        title,
-        style: TextStyle(
-          fontSize: 16,
-          color: HexColor('FFFFFF'),
-          fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 16,
+            color: HexColor('FFFFFF'),
+            fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+          ),
         ),
       ),
     );
