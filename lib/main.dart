@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ukrspetzevroprom/di/di.dart';
 import 'package:ukrspetzevroprom/features/about_us/data/repository/about_us_repository.dart';
 import 'package:ukrspetzevroprom/features/about_us/presentation/cubit/about_us_cubit.dart';
+import 'package:ukrspetzevroprom/features/contacts/data/repository/contacts_repository.dart';
+import 'package:ukrspetzevroprom/features/contacts/presentation/cubit/contacts_cubit.dart';
 import 'package:ukrspetzevroprom/router/app_router.dart';
 import 'package:ukrspetzevroprom/utils/firebase_options.dart';
 
@@ -24,6 +26,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               AboutUsCubit(getIt.get<AboutUsRepository>())..getAboutUsInfo(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              ContactsCubit(getIt.get<ContactsRepository>())..getContactsInfo(),
         ),
       ],
       child: MaterialApp.router(
