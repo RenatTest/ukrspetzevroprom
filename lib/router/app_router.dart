@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ukrspetzevroprom/di/di.dart';
+import 'package:ukrspetzevroprom/features/about_us/data/repository/about_us_repository.dart';
+import 'package:ukrspetzevroprom/features/about_us/presentation/cubit/about_us_cubit.dart';
 import 'package:ukrspetzevroprom/features/about_us/presentation/ui/screens/about_us.dart';
 import 'package:ukrspetzevroprom/features/catalog/presentation/ui/screens/catalog.dart';
 import 'package:ukrspetzevroprom/features/contacts/presentation/ui/screens/contacts.dart';
@@ -51,7 +55,12 @@ final router = GoRouter(
           name: PageNames.aboutUs,
           pageBuilder: (context, state) {
             return CustomTransitionPage(
-              child: const AboutUs(),
+              child: BlocProvider(
+                create: (context) =>
+                    AboutUsCubit(getIt.get<AboutUsRepository>())
+                      ..getAboutUsInfo(),
+                child: const AboutUs(),
+              ),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                     return SlideTransition(

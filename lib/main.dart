@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:ukrspetzevroprom/di/di.dart';
 import 'package:ukrspetzevroprom/router/app_router.dart';
 import 'package:ukrspetzevroprom/utils/firebase_options.dart';
 
 void main() async {
+  initDI();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
