@@ -8,10 +8,7 @@ class ContactsTelegram extends StatelessWidget {
 
   void _opentTelegram(String telegram) async {
     if (await canLaunchUrl(Uri.parse(telegram))) {
-      await launchUrl(
-        Uri.parse(telegram),
-        mode: LaunchMode.externalApplication,
-      );
+      await launchUrl(Uri.parse(telegram));
     } else {
       throw 'Could not launch $telegram';
     }

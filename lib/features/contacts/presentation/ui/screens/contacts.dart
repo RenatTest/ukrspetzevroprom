@@ -61,7 +61,7 @@ class Contacts extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 20,
+                              spacing: 10,
                               children: [
                                 ContactsTelegram(
                                   telegram: state.contactsInfo.telegram,

@@ -1,5 +1,7 @@
+// ignore_for_file: avoid_web_libraries_in_flutter
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+// ignore: deprecated_member_use
+import 'dart:html' as html;
 
 class ContactsViber extends StatelessWidget {
   const ContactsViber({super.key, required this.viber});
@@ -7,9 +9,7 @@ class ContactsViber extends StatelessWidget {
   final String viber;
 
   void _openViber(String viber) async {
-    if (await canLaunchUrl(Uri.parse(viber))) {
-      await launchUrl(Uri.parse(viber), mode: LaunchMode.externalApplication);
-    }
+    html.window.open(viber, '');
   }
 
   @override
