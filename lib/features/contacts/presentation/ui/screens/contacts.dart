@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ukrspetzevroprom/features/contacts/presentation/cubit/contacts_cubit.dart';
 import 'package:ukrspetzevroprom/features/contacts/presentation/cubit/contacts_state.dart';
+import 'package:ukrspetzevroprom/features/contacts/presentation/ui/widgets/contacts_email.dart';
+import 'package:ukrspetzevroprom/features/contacts/presentation/ui/widgets/contacts_phone.dart';
+import 'package:ukrspetzevroprom/features/contacts/presentation/ui/widgets/contacts_telegram.dart';
+import 'package:ukrspetzevroprom/features/contacts/presentation/ui/widgets/contacts_text.dart';
+import 'package:ukrspetzevroprom/features/contacts/presentation/ui/widgets/contacts_viber.dart';
 import 'package:ukrspetzevroprom/features/home_page/presentation/ui/widgets/app_bar_custom.dart';
 import 'package:ukrspetzevroprom/features/home_page/presentation/ui/widgets/app_drawer.dart';
 
@@ -43,35 +48,26 @@ class Contacts extends StatelessWidget {
                         ContactsStatus.loaded => Column(
                           spacing: 10,
                           children: [
-                            Text(
-                              state.contactsInfo.title,
-                              style: TextStyle(fontSize: 24),
-                              textAlign: TextAlign.center,
+                            ContactsText(
+                              text: state.contactsInfo.title,
+                              fontSize: 24,
                             ),
-                            Text(
-                              state.contactsInfo.description,
-                              style: TextStyle(fontSize: 16),
-                              textAlign: TextAlign.center,
+                            ContactsText(
+                              text: state.contactsInfo.description,
+                              fontSize: 16,
                             ),
-                            Text(
-                              state.contactsInfo.email,
-                              style: TextStyle(fontSize: 16),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              state.contactsInfo.phone,
-                              style: TextStyle(fontSize: 16),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              state.contactsInfo.telegram,
-                              style: TextStyle(fontSize: 16),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              state.contactsInfo.viber,
-                              style: TextStyle(fontSize: 16),
-                              textAlign: TextAlign.center,
+                            ContactsEmail(email: state.contactsInfo.email),
+                            ContactsPhone(phone: state.contactsInfo.phone),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              spacing: 20,
+                              children: [
+                                ContactsTelegram(
+                                  telegram: state.contactsInfo.telegram,
+                                ),
+                                ContactsViber(viber: state.contactsInfo.viber),
+                              ],
                             ),
                           ],
                         ),
