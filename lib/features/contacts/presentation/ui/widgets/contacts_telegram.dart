@@ -1,5 +1,7 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
 class ContactsTelegram extends StatelessWidget {
   const ContactsTelegram({super.key, required this.telegram});
@@ -7,11 +9,7 @@ class ContactsTelegram extends StatelessWidget {
   final String telegram;
 
   void _opentTelegram(String telegram) async {
-    if (await canLaunchUrl(Uri.parse(telegram))) {
-      await launchUrl(Uri.parse(telegram));
-    } else {
-      throw 'Could not launch $telegram';
-    }
+    html.window.open(telegram, '');
   }
 
   @override
